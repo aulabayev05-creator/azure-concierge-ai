@@ -629,6 +629,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      guest_token_valid: {
+        Args: { _guest_id: string; _hotel_id: string; _token: string }
+        Returns: boolean
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
