@@ -66,15 +66,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-import { Toaster } from "sonner";
-
 function RootComponent() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
   return (
     <>
       <Outlet />
-      {mounted && <Toaster position="top-right" richColors closeButton />}
+      <ClientOnly fallback={null}>
+        <Toaster position="top-right" richColors closeButton />
+      </ClientOnly>
     </>
   );
 }
