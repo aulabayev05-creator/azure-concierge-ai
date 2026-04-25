@@ -40,7 +40,7 @@ export function PlacesTab() {
       <div className="bg-gradient-navy text-cream p-5 relative overflow-hidden">
         <div className="text-[10px] tracking-[0.25em] uppercase text-[var(--gold)] mb-1">Амальфи · Откройте</div>
         <h2 className="font-display text-3xl italic leading-tight">Откройте свой город</h2>
-        <p className="text-cream/70 text-sm mt-2 max-w-md">Девять подобранных мест в шаговой доступности от Azure — от мишленовских столов до тропы вдоль скал.</p>
+        <p className="text-cream/70 text-sm mt-2 max-w-md">Девять подобранных мест в шаговой доступности от Meken AI — от мишленовских столов до тропы вдоль скал.</p>
         {/* Mini SVG map */}
         <svg className="absolute right-0 top-0 h-full w-1/2 opacity-30" viewBox="0 0 200 150">
           <defs>

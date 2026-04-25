@@ -15,7 +15,7 @@ export function ConciergeWidget() {
       <Tabs value={tab} onValueChange={setTab} className="flex flex-col h-full">
         <div className="shrink-0">
           <div className="px-6 py-4 border-b border-[var(--line)] flex items-center justify-between">
-            <div className="font-display text-lg text-[var(--navy)]">Azure Concierge</div>
+            <div className="font-display text-lg text-[var(--navy)]">Meken AI</div>
             <div className="h-2 w-2 rounded-full bg-emerald-500" />
           </div>
         </div>

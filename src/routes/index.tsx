@@ -55,7 +55,7 @@ function Landing() {
               Искусство невысказанной просьбы.
             </h1>
             <p className="font-display italic text-xl md:text-[22px] text-cream/80 mt-7 leading-relaxed max-w-lg">
-              Azure Concierge предугадывает желания гостей, автоматизирует сервис и оставляет команде только самое важное: личное внимание.
+              Meken AI предугадывает желания гостей, автоматизирует сервис и оставляет команде только самое важное: личное внимание.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <a href="/ai-chat" className="bg-gradient-gold text-[var(--navy)] px-6 py-3 rounded-full text-sm font-medium inline-flex items-center gap-2 hover:opacity-90 transition">
@@ -152,7 +152,7 @@ function Landing() {
       </section>
 
       <footer className="border-t border-[var(--line)] py-8 text-center text-xs text-[var(--navy)]/50">
-        <div className="font-display italic">Azure Coastal Resort · Амальфи</div>
+        <div className="font-display italic">Meken AI Coastal Resort · Амальфи</div>
         <div className="mt-1 font-mono">© 2026 ЛЮКСОВАЯ КОЛЛЕКЦИЯ</div>
       </footer>
     </main>

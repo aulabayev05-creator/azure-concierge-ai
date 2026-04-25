@@ -16,7 +16,7 @@ export function WidgetHeader({
         </div>
         <div className="min-w-0">
           <div className="flex items-center gap-2">
-            <span className="font-display text-base leading-none">Azure Консьерж</span>
+            <span className="font-display text-base leading-none">Meken AI</span>
             <Badge className="bg-gradient-gold text-[var(--navy)] border-0 text-[10px] tracking-wider font-mono">CHATGPT</Badge>
           </div>
           <div className="text-[10px] uppercase tracking-[0.18em] text-cream/60 mt-1">УМНЫЙ · ВСЕГДА НА СВЯЗИ</div>

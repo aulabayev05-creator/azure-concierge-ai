@@ -266,7 +266,7 @@ export function ConciergeChat({
             <div className="absolute bottom-12 left-0 bg-white border border-[var(--line)] rounded-xl shadow-elegant p-1.5 z-10 w-44">
               {[
                 { ico: <ImageIcon className="h-3.5 w-3.5" />, label: "Фото", action: () => { document.getElementById("ph-input")?.click(); setPopoverOpen(false); } },
-                { ico: <MapPin className="h-3.5 w-3.5" />, label: "Локация", action: () => { sendMessage("Поделиться локацией: Амальфи, отель Azure"); setPopoverOpen(false); } },
+                { ico: <MapPin className="h-3.5 w-3.5" />, label: "Локация", action: () => { sendMessage("Поделиться локацией: Амальфи, отель Meken AI"); setPopoverOpen(false); } },
                 { ico: <User className="h-3.5 w-3.5" />, label: "Сотрудник", action: () => { attachIntent({ type: "staff" }, ""); setPopoverOpen(false); } },
                 { ico: <CreditCard className="h-3.5 w-3.5" />, label: "Оплата", action: () => { attachIntent({ type: "payment" }, ""); setPopoverOpen(false); } },
                 { ico: <Calendar className="h-3.5 w-3.5" />, label: "План дня", action: () => { attachIntent({ type: "itinerary" }, ""); setPopoverOpen(false); } },

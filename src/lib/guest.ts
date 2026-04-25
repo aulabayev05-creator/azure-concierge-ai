@@ -136,7 +136,7 @@ export const ITINERARY = [
   { time: "08:30", text: "Завтрак доставлен", status: "done" },
   { time: "11:00", text: "Доступ к пляжу — кабина 7", status: "done" },
   { time: "16:00", text: "Спа — Шведский массаж", status: "active" },
-  { time: "19:30", text: "Ужин — Azure Coastal", status: "upcoming" },
+  { time: "19:30", text: "Ужин — Meken AI Coastal", status: "upcoming" },
   { time: "21:30", text: "Sky Lounge 360", status: "rec" },
 ];
 
@@ -149,7 +149,7 @@ export const RECENT_CHARGES = [
 ];
 
 export const STAY_HISTORY = [
-  { hotel: "Azure Милан", spent: 1240 },
-  { hotel: "Azure Капри", spent: 2180 },
-  { hotel: "Azure Киото", spent: 1890 },
+  { hotel: "Meken AI Милан", spent: 1240 },
+  { hotel: "Meken AI Капри", spent: 2180 },
+  { hotel: "Meken AI Киото", spent: 1890 },
 ];

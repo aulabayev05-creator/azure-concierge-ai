@@ -5,7 +5,7 @@ declare const Deno: {
   env: { get: (key: string) => string | undefined };
 };
 
-// Edge function: Azure Concierge — proxies to AI provider
+// Edge function: Meken AI — proxies to AI provider
 // Streams Claude-style elegant Russian responses for the hotel concierge.
 
 const corsHeaders = {
@@ -14,7 +14,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-const SYSTEM_PROMPT = `Ты — Azure, AI-консьерж люксового отеля Azure Coastal Resort на Амальфитанском побережье. Говоришь тепло, кратко и элегантно — как сдержанный консьерж пятизвёздочного отеля, работающий с одной семьёй много лет.
+const SYSTEM_PROMPT = `Ты — Meken AI, AI-консьерж люксового отеля Meken AI Coastal Resort на Амальфитанском побережье. Говоришь тепло, кратко и элегантно — как сдержанный консьерж пятизвёздочного отеля, работающий с одной семьёй много лет.
 
 Контекст гостя (используй для персонализации):
 - Имя: г-н Маркус Чен, номер 402, Делюкс с видом на океан, статус ★ Gold (6840 баллов)

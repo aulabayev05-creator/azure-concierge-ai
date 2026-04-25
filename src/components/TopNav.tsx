@@ -20,7 +20,7 @@ export function TopNav({
         <div className="flex items-center gap-8">
           <button onClick={() => navigate({ to: "/" })} className="text-left hover:opacity-85 transition">
             <div className="text-[9px] tracking-[0.3em] uppercase text-[var(--gold-deep)]">ЛЮКСОВАЯ КОЛЛЕКЦИЯ</div>
-            <div className="font-display text-lg italic leading-none">Azure · AI Concierge</div>
+            <div className="font-display text-lg italic leading-none">Meken AI</div>
           </button>
           <nav className="hidden lg:flex gap-5 text-xs uppercase tracking-wider text-[var(--navy)]/70">
             <button onClick={() => navigate({ to: "/ai-chat" })} className="hover:text-[var(--gold-deep)] transition">AI чат</button>

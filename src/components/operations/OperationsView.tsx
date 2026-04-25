@@ -54,7 +54,7 @@ export function OperationsView() {
         {/* Header */}
         <div className="flex items-start justify-between flex-wrap gap-3 mb-6">
           <div>
-            <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--gold-deep)]">Azure · Операции</div>
+            <div className="text-[10px] uppercase tracking-[0.25em] text-[var(--gold-deep)]">Meken AI · Операции</div>
             <h1 className="font-display text-4xl italic mt-1">Маршрутизация в реальном времени</h1>
             <div className="flex items-center gap-2 mt-2 text-xs text-[var(--navy)]/60">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-live-dot" /> В эфире · София Риччи · Менеджер ресепшена · На смене

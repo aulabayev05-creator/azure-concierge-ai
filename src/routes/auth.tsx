@@ -35,7 +35,7 @@ function AuthPage() {
     <div className="min-h-screen bg-gradient-navy flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-elegant p-8">
         <div className="text-[10px] tracking-[0.3em] uppercase text-[var(--gold-deep)] text-center">ЛЮКСОВАЯ КОЛЛЕКЦИЯ</div>
-        <h1 className="font-display text-3xl italic text-center mt-1 mb-6">Azure Concierge</h1>
+        <h1 className="font-display text-3xl italic text-center mt-1 mb-6">Meken AI</h1>
         <div className="flex bg-[var(--cream)] rounded-full p-1 mb-6 text-sm">
           <button onClick={() => setMode("signin")} className={`flex-1 py-1.5 rounded-full transition ${mode === "signin" ? "bg-[var(--navy)] text-cream" : ""}`}>Войти</button>
           <button onClick={() => setMode("signup")} className={`flex-1 py-1.5 rounded-full transition ${mode === "signup" ? "bg-[var(--navy)] text-cream" : ""}`}>Регистрация</button>
