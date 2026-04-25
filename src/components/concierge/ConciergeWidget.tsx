@@ -11,7 +11,7 @@ export function ConciergeWidget() {
   const [refresh, setRefresh] = useState(0);
 
   return (
-    <div className="relative h-[720px] max-h-[85vh] rounded-2xl overflow-hidden bg-white shadow-elegant border border-[var(--line)] flex flex-col">
+    <div className="relative h-[min(920px,calc(100dvh-6rem))] min-h-[680px] rounded-2xl overflow-hidden bg-white shadow-elegant border border-[var(--line)] flex flex-col">
       <Tabs value={tab} onValueChange={setTab} className="flex flex-col h-full">
         <div className="shrink-0">
           <div className="px-6 py-4 border-b border-[var(--line)] flex items-center justify-between">

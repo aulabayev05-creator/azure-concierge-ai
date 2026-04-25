@@ -31,7 +31,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Azure Concierge — Люксовая Коллекция" },
-      { name: "description", content: "AI-консьерж на базе Claude для отеля Azure Coastal Resort на Амальфитанском побережье. Помнит ваш эспрессо, предугадывает ужин, говорит на двенадцати языках." },
+      { name: "description", content: "AI-консьерж на базе ChatGPT для отеля Azure Coastal Resort на Амальфитанском побережье. Помнит ваш эспрессо, предугадывает ужин, говорит на двенадцати языках." },
       { property: "og:title", content: "Azure Concierge — Люксовая Коллекция" },
       { property: "og:description", content: "Искусство невысказанной просьбы. AI-консьерж люксового отеля." },
       { property: "og:type", content: "website" },

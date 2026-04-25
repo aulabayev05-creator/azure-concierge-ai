@@ -27,7 +27,13 @@ const SAMPLES_RU = [
 
 const now = () => new Date().toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
 
-export function ConciergeChat({ onRequestCreated }: { onRequestCreated: (id: string, type: string, photoUrl?: string) => void }) {
+export function ConciergeChat({
+  onRequestCreated,
+  standalone = false,
+}: {
+  onRequestCreated: (id: string, type: string, photoUrl?: string) => void;
+  standalone?: boolean;
+}) {
   const [messages, setMessages] = useState<Msg[]>([
     { id: "welcome", role: "ai", time: now(), content: "Добрый день. Чем могу быть полезен — ужин, спа, прогулка или что-то по номеру?" },
   ]);
@@ -37,6 +43,7 @@ export function ConciergeChat({ onRequestCreated }: { onRequestCreated: (id: str
   const [voiceOpen, setVoiceOpen] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const [showPersonalBanner, setShowPersonalBanner] = useState(true);
   const [pendingPhoto, setPendingPhoto] = useState<File | null>(null);
   const [dragOver, setDragOver] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -203,17 +210,22 @@ export function ConciergeChat({ onRequestCreated }: { onRequestCreated: (id: str
   };
 
   return (
-    <div className="flex flex-col h-full bg-[var(--cream)]">
-      <WidgetHeader language={language} setLanguage={setLanguage} />
-      <GuestStrip />
-      <PersonalBanner onOption={(a) => {
-        if (a === "spa") attachIntent({ type: "request", key: "spa" } as any, "Забронировать спа в 16:00");
-        if (a === "recos") attachIntent({ type: "recos" }, "Покажи варианты");
-      }} />
+    <div className={`flex flex-col h-full ${standalone ? "bg-white" : "bg-[var(--cream)]"}`}>
+      <WidgetHeader language={language} setLanguage={setLanguage} standalone={standalone} />
+      {!standalone && <GuestStrip />}
+      {!standalone && showPersonalBanner && (
+        <PersonalBanner
+          onOption={(a) => {
+            if (a === "spa") attachIntent({ type: "request", key: "spa" } as any, "Забронировать спа в 16:00");
+            if (a === "recos") attachIntent({ type: "recos" }, "Покажи варианты");
+            if (a === "dismiss") setShowPersonalBanner(false);
+          }}
+        />
+      )}
 
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3 min-h-0">
+      <div ref={scrollRef} className={`flex-1 overflow-y-auto min-h-0 ${standalone ? "px-4 md:px-8 py-5 space-y-4" : "px-4 py-3 space-y-3"}`}>
         {messages.map(m => (
-          <div key={m.id}>
+          <div key={m.id} className={standalone ? "max-w-3xl mx-auto" : ""}>
             <MessageBubble role={m.role} content={m.content || (m.role === "ai" && streaming && m.id.startsWith("a-") ? <TypingIndicator /> : "")} time={m.content ? m.time : undefined} />
             {renderAttach(m)}
           </div>
@@ -221,8 +233,8 @@ export function ConciergeChat({ onRequestCreated }: { onRequestCreated: (id: str
       </div>
 
       {/* Quick actions */}
-      <div className="border-t border-[var(--line)] bg-white/60">
-        <div className="flex gap-1.5 overflow-x-auto px-3 py-2 edge-fade">
+      <div className={`border-t border-[var(--line)] ${standalone ? "bg-white" : "bg-white/60"}`}>
+        <div className={`flex gap-1.5 overflow-x-auto edge-fade ${standalone ? "px-4 md:px-8 py-2.5 max-w-3xl mx-auto" : "px-3 py-2"}`}>
           {QUICK_ACTIONS.map(a => (
             <button key={a.key} onClick={() => sendMessage(`Хочу ${a.label.toLowerCase()}`)}
               className={`shrink-0 px-3 py-1.5 rounded-full text-xs border transition flex items-center gap-1.5 ${a.highlight ? "bg-[var(--gold-soft)] border-[var(--gold)]/40 text-[var(--navy)]" : "bg-white border-[var(--line)] text-[var(--navy)] hover:border-[var(--gold)]"}`}>
@@ -237,7 +249,7 @@ export function ConciergeChat({ onRequestCreated }: { onRequestCreated: (id: str
         onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
         onDragLeave={() => setDragOver(false)}
         onDrop={onDrop}
-        className={`border-t border-[var(--line)] bg-white p-3 transition ${dragOver ? "ring-2 ring-[var(--gold)] ring-inset bg-[var(--gold-soft)]" : ""}`}
+        className={`border-t border-[var(--line)] bg-white transition ${standalone ? "px-4 md:px-8 py-3.5" : "p-3"} ${dragOver ? "ring-2 ring-[var(--gold)] ring-inset bg-[var(--gold-soft)]" : ""}`}
       >
         {pendingPhoto && (
           <div className="mb-2 flex items-center gap-2 bg-[var(--gold-soft)] border border-[var(--gold)]/30 rounded-lg p-1.5">
@@ -246,7 +258,7 @@ export function ConciergeChat({ onRequestCreated }: { onRequestCreated: (id: str
             <button onClick={() => setPendingPhoto(null)} className="h-6 w-6 rounded-full hover:bg-white/60 flex items-center justify-center"><X className="h-3 w-3" /></button>
           </div>
         )}
-        <div className="flex items-end gap-2 relative">
+        <div className={`flex items-end gap-2 relative ${standalone ? "max-w-3xl mx-auto" : ""}`}>
           <button onClick={() => setPopoverOpen(v => !v)} className="h-9 w-9 rounded-full border border-[var(--line)] hover:bg-[var(--gold-soft)] flex items-center justify-center shrink-0">
             <Plus className={`h-4 w-4 transition ${popoverOpen ? "rotate-45" : ""}`} />
           </button>

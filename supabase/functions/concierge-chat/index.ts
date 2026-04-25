@@ -1,4 +1,11 @@
-// Edge function: Azure Concierge — proxies to Lovable AI Gateway
+import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+
+declare const Deno: {
+  serve: (handler: (req: Request) => Response | Promise<Response>) => void;
+  env: { get: (key: string) => string | undefined };
+};
+
+// Edge function: Azure Concierge — proxies to AI provider
 // Streams Claude-style elegant Russian responses for the hotel concierge.
 
 const corsHeaders = {
@@ -36,24 +43,24 @@ Deno.serve(async (req: Request) => {
 
   try {
     const { messages } = await req.json();
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
+    const AI_PROVIDER_API_KEY = Deno.env.get("OPENAI_API_KEY");
+    if (!AI_PROVIDER_API_KEY) {
       return new Response(
-        JSON.stringify({ error: "LOVABLE_API_KEY not configured" }),
+        JSON.stringify({ error: "OPENAI_API_KEY not configured" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
     }
 
     const response = await fetch(
-      "https://ai.gateway.lovable.dev/v1/chat/completions",
+      "https://api.openai.com/v1/chat/completions",
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          Authorization: `Bearer ${AI_PROVIDER_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "google/gemini-3-flash-preview",
+          model: "gpt-4.1-mini",
           messages: [
             { role: "system", content: SYSTEM_PROMPT },
             ...messages.slice(-10),

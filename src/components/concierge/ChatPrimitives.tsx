@@ -3,10 +3,10 @@ import { GUEST } from "@/lib/guest";
 import { Badge } from "@/components/ui/badge";
 
 export function WidgetHeader({
-  language, setLanguage,
-}: { language: string; setLanguage: (v: string) => void }) {
+  language, setLanguage, standalone = false,
+}: { language: string; setLanguage: (v: string) => void; standalone?: boolean }) {
   return (
-    <div className="bg-gradient-navy text-cream flex items-center justify-between px-4 h-14 rounded-t-2xl">
+    <div className={`bg-gradient-navy text-cream flex items-center justify-between px-4 h-14 ${standalone ? "" : "rounded-t-2xl"}`}>
       <div className="flex items-center gap-3 min-w-0">
         <div className="relative">
           <div className="h-9 w-9 rounded-full bg-gradient-gold flex items-center justify-center text-base shadow-elegant animate-pulse-gold">
@@ -17,7 +17,7 @@ export function WidgetHeader({
         <div className="min-w-0">
           <div className="flex items-center gap-2">
             <span className="font-display text-base leading-none">Azure Консьерж</span>
-            <Badge className="bg-gradient-gold text-[var(--navy)] border-0 text-[10px] tracking-wider font-mono">CLAUDE AI</Badge>
+            <Badge className="bg-gradient-gold text-[var(--navy)] border-0 text-[10px] tracking-wider font-mono">CHATGPT</Badge>
           </div>
           <div className="text-[10px] uppercase tracking-[0.18em] text-cream/60 mt-1">УМНЫЙ · ВСЕГДА НА СВЯЗИ</div>
         </div>
