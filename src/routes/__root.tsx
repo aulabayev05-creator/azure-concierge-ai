@@ -35,7 +35,13 @@ export const Route = createRootRoute({
       { property: "og:title", content: "Meken AI — Люксовая Коллекция" },
       { property: "og:description", content: "Искусство невысказанной просьбы. AI-консьерж люксового отеля." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://azure-concierge-ai.vercel.app" },
+      { property: "og:image", content: "https://azure-concierge-ai.vercel.app/social-cover.png" },
+      { property: "og:image:alt", content: "Meken AI — AI-консьерж люксового отеля" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Meken AI — Люксовая Коллекция" },
+      { name: "twitter:description", content: "Искусство невысказанной просьбы. AI-консьерж люксового отеля." },
+      { name: "twitter:image", content: "https://azure-concierge-ai.vercel.app/social-cover.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
